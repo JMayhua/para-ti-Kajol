@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido Kajol</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Nunito:wght@600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Nunito', sans-serif;
+            overflow: auto;
+        }
+
+        .back {
+            width: 100%;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #58bb71 0%, #b2fc9f 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        .title {
+            font-family: 'Pacifico', cursive;
+            font-size: 2.5rem;
+            color: #1d3557;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .bday {
+            text-align: center;
+            padding: 15px;
+            font-size: 16px;
+            font-weight: 600;
+            color: #1d3557;
+            background-color: #ffeb3b;
+            border-radius: 10px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 500px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .surprise-message {
+            text-align: center;
+            padding: 20px;
+            font-size: 18px;
+            font-weight: 600;
+            color: white;
+            background: linear-gradient(45deg, #ff6b6b, #ff8a5b);
+            border-radius: 15px;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            width: 90%;
+            max-width: 600px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            display: none;
+            line-height: 1.6;
+        }
+
+        .heart-wrapper {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .heart-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .heart {
+            position: relative;
+            background-color: rgb(199, 52, 52);
+            height: 120px;
+            width: 120px;
+            transform: rotate(-45deg);
+            animation: beat 2s ease-in-out infinite;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .heart:hover {
+            transform: rotate(-45deg) scale(1.1);
+        }
+
+        .heart:before, .heart:after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background-color: red;
+            width: 120px;
+            height: 120px;
+        }
+
+        .heart:before {
+            top: -60px;
+            left: 0;
+        }
+
+        .heart:after {
+            top: 0;
+            left: 60px;
+        }
+
+        .heart-text {
+            transform: rotate(45deg);
+            font-size: 24px;
+            font-weight: bold;
+            color: white;
+            font-family: 'Pacifico', cursive;
+            z-index: 2;
+        }
+
+        footer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        button {
+            background-color: #ff8a65;
+            padding: 12px 25px;
+            color: white;
+            font-size: 14px;
+            border: none;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            margin: 10px;
+        }
+
+        button:hover {
+            background-color: #ff7043;
+            transform: translateY(-3px);
+        }
+
+        @keyframes beat {
+            0%, 100% { transform: rotate(-45deg) scale(1); }
+            50% { transform: rotate(-45deg) scale(1.1); }
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 2rem;
+            }
+
+            .heart-wrapper {
+                flex-direction: column;
+            }
+
+            .heart-container {
+                flex-direction: column;
+            }
+
+            .heart {
+                height: 100px;
+                width: 100px;
+            }
+
+            .heart:before, .heart:after {
+                width: 100px;
+                height: 100px;
+            }
+
+            .heart:before {
+                top: -50px;
+            }
+
+            .heart:after {
+                left: 50px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="back">
+        <div class="title">Bienvenido Kajol<br><br></div>
+
+        <div class="heart-wrapper">
+            <div class="heart-container left-hearts">
+                <div class="heart heart-left">
+                    <span class="heart-text">E</span>
+                </div>
+                <div class="heart heart-left">
+                    <span class="heart-text">R</span>
+                </div>
+                <div class="heart heart-left">
+                    <span class="heart-text">E</span>
+                </div>
+            </div>
+
+            <div class="heart-container center-hearts">
+                <div class="heart" onclick="revealSecret('bonito')">
+                    <span class="heart-text">S</span>
+                </div>
+                <div class="heart" onclick="revealSecret('dia')">
+                    <span class="heart-text">Increible</span>
+                </div>
+                <div class="heart" onclick="revealSecret('kajol')">
+                    <span class="heart-text">Magnifica</span>
+                </div>
+            </div>
+
+            <div class="heart-container right-hearts">
+                <div class="heart heart-right">
+                    <span class="heart-text">Bella</span>
+                </div>
+                <div class="heart heart-right">
+                    <span class="heart-text">Radiante</span>
+                </div>
+                <div class="heart heart-right">
+                    <span class="heart-text">La mejor</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="bday" id="specialMessage">
+            Holis Kajol [❤️❤️] <br>
+            PARA TI: hermosa chica y maravillosa. mi renegonita,<br> 
+            TUS FLORES ROJAS<br>
+            al estilo ingeniero❤️
+        </div>
+        
+        <div class="surprise-message" id="surpriseMessage">
+            Hoy es un bonito día, nunca dejes de sonreír. 
+            Sabes?, siempre serás mi mas bonita casualidad. 
+            Eres mi inspiración, mi alegría, mi todo. 
+            Nunca te rindas, te quiero ver triunfando, eres la mejor ❤️
+        </div>
+
+        <footer>
+            <button onclick="toggleMessage()">Mostrar Mensaje</button>
+            <button onclick="toggleSurpriseMessage()">Sorpresa Especial</button>
+            <button><a href="index2.html" style="color: white; text-decoration: none;">Ingresa primero Aquí❤️</a></button>
+            <button><a href="hola.html" style="color: white; text-decoration: none;">Ingresa después❤️</a></button>
+        </footer>
+    </div>
+
+    <script>
+        let heartClicks = {bonito: false, dia: false, kajol: false};
+
+        function revealSecret(heart) {
+            heartClicks[heart] = true;
+            if (heartClicks.bonito && heartClicks.dia && heartClicks.kajol) {
+                document.getElementById('specialMessage').style.display = 'block';
+            }
+        }
+
+        function toggleMessage() {
+            const message = document.getElementById('specialMessage');
+            const currentDisplay = message.style.display;
+            
+            document.getElementById('surpriseMessage').style.display = 'none';
+            message.style.display = currentDisplay === 'none' || currentDisplay === '' ? 'block' : 'none';
+        }
+
+        function toggleSurpriseMessage() {
+            const surpriseMessage = document.getElementById('surpriseMessage');
+            const currentDisplay = surpriseMessage.style.display;
+
+            document.getElementById('specialMessage').style.display = 'none';
+            surpriseMessage.style.display = currentDisplay === 'none' || currentDisplay === '' ? 'block' : 'none';
+        }
+    </script>
+</body>
+</html>
